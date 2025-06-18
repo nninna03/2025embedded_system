@@ -1,9 +1,8 @@
 #ifndef _LED_H_
 #define _LED_H_
+int ledLibInit(void);
+int ledOnOff(int ledNum, int onOff);
+int ledLibExit(void);
 #define LED_DRIVER_NAME "/dev/periled"
-
-int led_init();
-void led_oper(int num, int operation);
-void led_exit();
 
 #endif _LED_H_
