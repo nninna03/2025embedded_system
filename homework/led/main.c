@@ -12,16 +12,16 @@
 
 int main(int argc, char** argv) {
 	
-    int fd = led_init();
+    int fd = ledLibInit();
     
      for (int i = 0; i<=7; i++) {
-            led_oper(i,1);
+            ledOnOff(i,1);
             printf("LED %d ON\n", i + 1);
             sleep(1);
         }
 	
     printf("bye \n");
-    led_exit();
+    ledLibExit();
     return 0;
     
 }
