@@ -14,22 +14,14 @@ int main(int argc, char** argv) {
 	
     int fd = led_init();
     
-    
-    printf("hihihihih\n");
-    while(1) {
-        for (int i = 0; i<=7; i++) {
-            ledOnOff(i,1);
+     for (int i = 0; i<=7; i++) {
+            led_oper(i,1);
             printf("LED %d ON\n", i + 1);
             sleep(1);
         }
-
-        for (int i = 0; i<=7; i++) {
-            ledOnOff(i,0);
-            printf("LED %d OFF\n", i + 1);
-            sleep(1);
-        }
-        printf("bye \n");
-        ledLibExit();
-        return 0;
-    }
+	
+    printf("bye \n");
+    led_exit();
+    return 0;
+    
 }
