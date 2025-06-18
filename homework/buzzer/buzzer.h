@@ -8,12 +8,12 @@
 #define BUZZER_FREQUENCY_NAME "frequency"
 char gBuzzerBaseSysDir[128]; //sys/bus/platform/devices/peribuzzer.XX가 결정됨
 // const int musicScale[MAX_SCALE_SETP] = {262, 294, 330, 349, 392, 440, 494}; // do re mi ... si do
-
-void buzzerEnable();
+int findBuzzerSysPath();
+void doHelp(void);
+void buzzerEnable(int bEnable);
 void setFrequency(int frequency);
-void buzzerInit();
-void buzzerExit();
-void buzzerTone();
-void buzzerStop();
-void delay_ms(unsigned int milliseconds);
+ int buzzerInit(void);
+ int buzzerPlaySong(int scale);
+ int buzzerStopSong(void);
+ int buzzerExit(void);
 #endif 
