@@ -16,6 +16,12 @@ static int fd = 0;
 int led_init() {
     fd = open(LED_DRIVER_NAME, O_WRONLY);
     ledValue = 0;
+    
+    if (fd < 0) {
+        printf("failed open file\n");
+        return -1;
+    }
+    
     return fd;
 }
 
