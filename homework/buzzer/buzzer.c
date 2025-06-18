@@ -51,7 +51,7 @@ void setFrequency(int frequency) {
     close(fd);
 }
 
-void buzzerInit() {
+int buzzerInit(void) {
     //Fine Buzzer System Path
     DIR * dir_info = opendir(BUZZER_BASE_SYS_PATH);
     int ifNotFound = 1;
@@ -74,17 +74,20 @@ void buzzerInit() {
 }
 
 
-void buzzerPlaySong(int scale) {
+int buzzerPlaySong(int scale) {
     setFrequency(scale);
     buzzerEnable(1);
+   return 0;
 }
-void buzzerStopSong() {
+int buzzerStopSong(void) {
     buzzerEnable(0);
+   return 0;
 }
 
-void buzzerExit() {
+int buzzerExit(void) {
     buzzerEnable(0);
     char path[200];
     sprintf(path, "%s%s", gBuzzerBaseSysDir, BUZZER_ENABLE_NAME);
     close(path);
+   return 0;
 }
