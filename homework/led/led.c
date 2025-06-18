@@ -12,31 +12,18 @@
 
 static unsigned int ledValue = 0;
 static int fd = 0;
-
-int led_init() {
-    fd = open(LED_DRIVER_NAME, O_WRONLY);
-    ledValue = 0;
-    
-    if (fd < 0) {
-        printf("failed open file\n");
-        return -1;
-    }
-    
-    return fd;
-}
-
-
-void led_oper(int num, int operation) {
+int ledOnOff(int ledNum, int onOff) {
     int i = 1;
-    i = i << num;
+    i = i << ledNum;
     ledValue = ledValue & (~i);
-    if (operation != 0) {
-        ledValue |= i;
-    }
+    if (onOff != 0)ledValue |= i;
     write(fd, &ledValue, 4);
 }
-
-void led_exit() {
+int ledLibInit() {
+    fd = open(LED_DRIVER_NAME, O_WRONLY);
+    ledValue = 0;
+}
+int ledLibExit() {
     ledValue = 0;
     ledOnOff(0, 0);
     close(fd);
