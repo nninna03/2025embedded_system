@@ -15,6 +15,19 @@
 #include "buzzer.h"
 pthread_mutex_t lock;
 
+int melody[] = {
+    DO, DO, DO, DO, DO,
+    MI, SOL, SOL, MI, DO,
+    SOL, SOL, MI, SOL, SOL, MI,
+    DO, DO, DO
+};
+
+int noteDurations[] = {
+    4, 8, 8, 4, 4,
+    4, 8, 8, 4, 4,
+    8, 8, 4, 8, 8, 4,
+    4, 4, 2
+};
 
 int main(){
 //******************************************** thread init ******************************
