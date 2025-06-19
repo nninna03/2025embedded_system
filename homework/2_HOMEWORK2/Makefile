@@ -3,7 +3,7 @@ all: main.elf
         echo "InA's HW2 : [scp elf file]"
         rm -f textlcd.o colorLEDtest.o fndtest.o libMyPeri.a main.elf
  
-textlcd.o : textlcd.h textlcddrc.h textlcd.c
+textlcd.o : textlcd.h textlcddrv.h textlcd.c
         arm-linux-gnueabi-gcc -static -o textlcd.o -c textlcd.c 
         echo "InA's HW2 : [make textlcd.o]"
 
