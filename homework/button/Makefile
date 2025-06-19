@@ -1,6 +1,6 @@
 all : main.elf
 	scp main.elf ecube@192.168.175.233:/home/ecube/2025_project/sensors/BUTTON
-	rm -f led.o libMyPeri.a main.elf
+	rm -f button.o libMyPeri.a main.elf
 
 button.o : button.h button.c
 	arm-linux-gnueabi-gcc -static -o button.o -c button.c 
