@@ -11,7 +11,7 @@ button.o : button.h button.c
 buzzer.o : buzzer.h buzzer.c
         arm-linux-gnueabi-gcc -static -o buzzer.o -c buzzer.c 
 
-libMyPeri.a: led.o button.o buzzer.o fnd.o textlcd.o
+libMyPeri.a: led.o button.o buzzer.o 
         arm-linux-gnueabi-ar rc libMyPeri.a led.o button.o buzzer.o 
 
 main.elf: main.c libMyPeri.a
